@@ -141,7 +141,10 @@ foreach ($pages as $page) {
 		$router->get($page->slug, 'PageController@video');
 	}	elseif ($page->slug == 'photo-gallery') {
 		$router->get($page->slug, 'PageController@photo');
-	} elseif ($page->slug <> '/') {
+	} elseif ($page->slug == 'home' || $page->slug == '/') {
+		// The home page is served at the site root by HomeController.
+		$router->permanentRedirect('home', '/');
+	} else {
 		$router->get($page->slug, 'PageController@index');
 	}
 }
