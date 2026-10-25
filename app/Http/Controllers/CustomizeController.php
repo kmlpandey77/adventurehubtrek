@@ -24,7 +24,7 @@ class CustomizeController extends Controller
 
         $this->validate($request, [
             'full_name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|max:255',
             'country' => 'required',
             'number_of_traveller' => 'required',
             'message' => 'required',
@@ -40,7 +40,6 @@ class CustomizeController extends Controller
         }
 
         
-        return new CustomizeTrip($request);
         Mail::send(new CustomizeTrip($request));
         Mail::send(new AutoResponse($request->full_name, $request->email));
         return redirect()->route('thankyou');

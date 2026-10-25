@@ -102,7 +102,7 @@ class Package extends \App\Base
             $image_url = url('upload/packages/' . $size . '/' . $this->image);            
         }
         
-        if(!file_exists($image) && count($this->slides) > 0){
+        if((!$image || !file_exists($image)) && count($this->slides) > 0){
             $image = public_path('uploads/slide/' . $this->slides->first()->image);
             $image_url = url('upload/slide/' . $size . '/' . $this->slides->first()->image);
         }
@@ -142,7 +142,7 @@ class Package extends \App\Base
     public function getOtherInfoAttribute()
     {
         $otherinfo = null;
-        foreach (config('otherinfo') as $key => $value) {
+        foreach (config('otherinfo', []) as $key => $value) {
             if(in_array($this->category_id, $value)){
                 $page = \App\Page::find($key);
                 if($page){

@@ -43,7 +43,7 @@ class TeamcategoryController extends Controller
 
         $teamcategory = new Teamcategory;
         $teamcategory->title = $request->title;
-        $teamcategory->slug = str_slug($request->title);
+        $teamcategory->slug = \Illuminate\Support\Str::slug($request->title);
         $teamcategory->order_by = (Teamcategory::max('order_by') + 1);
         $teamcategory->save();
 
@@ -86,7 +86,7 @@ class TeamcategoryController extends Controller
         ]);
 
         $teamcategory->title = $request->title;
-        $teamcategory->slug = str_slug($request->title);
+        $teamcategory->slug = \Illuminate\Support\Str::slug($request->title);
         $teamcategory->save();               
         return redirect()->route('teamcategories.index')->with('success', 'Team Category saved.');
     }

@@ -7,7 +7,7 @@
 
 			<h3><a href="{{ url('news/'.$n->slug) }}">{{ $n->title }}</a></h3>
 			<div class="date">{{ $n->event_date() }}</div>
-			<p>{{ str_limit(strip_tags($n->details), 300) }}</p>
+			<p>{{ \Illuminate\Support\Str::limit(strip_tags($n->details), 300) }}</p>
 			<a href="{{ url('news/'.$n->slug) }}" class="button button-secondary button-raised button-uppercase button-pill">read more <span class="fa fa-angle-right"></span></a>
 			
 		</div>

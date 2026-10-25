@@ -12,8 +12,8 @@ class Label extends Model
     {
         list($labelPage, $id) = explode(':', $labelID);
 
-        $labels = Cache::remember($labelPage, 30 * 24 * 60, function () use ($labelPage) {
-            return DB::table('labels')->where('page', $labelPage)->pluck('value', 'labelid');
+        $labels = Cache::remember($labelPage, 30 * 24 * 60 * 60, function () use ($labelPage) {
+            return DB::table('labels')->where('page', $labelPage)->pluck('value', 'labelid')->all();
         });
         if (isset($labels[$labelID]) && isset($labels[$labelID]) && $labels[$labelID]) {
             return $labels[$labelID];

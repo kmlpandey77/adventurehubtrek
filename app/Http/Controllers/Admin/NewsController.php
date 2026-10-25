@@ -43,7 +43,7 @@ class NewsController extends Controller
         ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);
+        $slug = $slug == '/'? $slug : \Illuminate\Support\Str::slug($slug);
 
         $news = new News;
         $news->title = $request->title;
@@ -99,7 +99,7 @@ class NewsController extends Controller
         ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);
+        $slug = $slug == '/'? $slug : \Illuminate\Support\Str::slug($slug);
 
         $news->title = $request->title;
         $news->event_date = $request->event_date;

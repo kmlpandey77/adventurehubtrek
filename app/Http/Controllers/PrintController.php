@@ -27,7 +27,6 @@ class PrintController extends Controller
         
         $package = Package::where('slug',$slug)->first();
         $contact = Page::find(3)->details;
-        dd($contact);
         $view = view('pdf', compact('package', 'contact'));
         // return view('pdf', compact('package', 'contact'));
 

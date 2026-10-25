@@ -25,7 +25,8 @@ return [
 	'js' => [
 		'min_path' => 'js/main.min.js',
 		'files' => [
-			'vendors/jquery-2.2.4.min.js',
+			'vendors/jquery-3.7.1.min.js',
+			'vendors/jquery-migrate-3.4.1.min.js',
 			'vendors/jquery-ui/jquery-ui.min.js',
 			'vendors/smartmenus/jquery.smartmenus.min.js',
 			'vendors/popper.min.js',

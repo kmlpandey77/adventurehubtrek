@@ -195,16 +195,24 @@ class Menu extends Model
 			if (is_array($menu)) {
 				// dd($menu);
 				$html .= '<li class="' . ($i == 1 ? 'nav-item ' : null) . 'dropdown">';
-				$html .= '<a class="' . ($i == 1 ? 'nav-link' : 'dropdown-item') . ' dropdown-toggle" href="' . url($link) . '">' . $menu[$link] . '</a>';
+				$html .= '<a class="' . ($i == 1 ? 'nav-link' : 'dropdown-item') . ' dropdown-toggle" href="' . self::url($link) . '">' . $menu[$link] . '</a>';
 				$html .= '<ul class="dropdown-menu">';
 				$html .= self::html($menu['sub'], $i);
 				$html .= '</ul>';
 				$html .= '</li>';
 			} else {
-				$html .= '<li class="' . ($i == 1 ? 'nav-item ' : null) . '"><a class="' . ($i == 1 ? 'nav-link' : 'dropdown-item') . '" href="' . url($link) . '">' . $menu . '</a></li>';
+				$html .= '<li class="' . ($i == 1 ? 'nav-item ' : null) . '"><a class="' . ($i == 1 ? 'nav-link' : 'dropdown-item') . '" href="' . self::url($link) . '">' . $menu . '</a></li>';
 			}
 		}
 
 		return $html;
+	}
+
+	/**
+	 * The "home" page is the site root.
+	 */
+	public static function url($slug)
+	{
+		return url($slug == 'home' ? '/' : $slug);
 	}
 }

@@ -33,9 +33,9 @@ Regions
 				<td>{{ '/' . $region->slug }}</td>
 				<td>
 					@if ($region->status)
-						<a class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="bottom" title="Click to show" href="{{ route('regions.showhide', $region->id) }}"><i class="lnr lnr-checkmark-circle"></i></a>
+						<a class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="bottom" title="Click to show" data-method="post" href="{{ route('regions.showhide', $region->id) }}"><i class="lnr lnr-checkmark-circle"></i></a>
 					@else
-						<a class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="Click to hide" href="{{ route('regions.showhide', $region->id) }}"><i class="lnr lnr-cross-circle"></i></a>
+						<a class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="Click to hide" data-method="post" href="{{ route('regions.showhide', $region->id) }}"><i class="lnr lnr-cross-circle"></i></a>
 						
 					@endif
 					[{{ $region->status ? 'Active' : 'Draft' }}]

@@ -3,7 +3,7 @@
         <a href="{{ $package->url }}"><img src="{{ $package->image('400x200') }}" alt="{{ $package->title }}" class="img-fluid"></a>
         <div class="trip-txt">
             <h3><a href="{{ $package->url }}">{{ $package->title }}</a></h3>
-            <p>{{ str_limit(strip_tags($package->details), 80) }}</p>
+            <p>{{ \Illuminate\Support\Str::limit(strip_tags($package->details), 80) }}</p>
         </div>
         <div class="trip-fact">
             <ul class="row">

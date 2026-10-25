@@ -47,7 +47,7 @@ class RegionController extends Controller
         ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);
+        $slug = $slug == '/'? $slug : \Illuminate\Support\Str::slug($slug);
 
         $region = new Region;
         $region->activity_id = $request->activity_id;
@@ -109,7 +109,7 @@ class RegionController extends Controller
         ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);
+        $slug = $slug == '/'? $slug : \Illuminate\Support\Str::slug($slug);
 
         $region->activity_id = $request->activity_id;
         $region->title = $request->title;

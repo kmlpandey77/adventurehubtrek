@@ -28,7 +28,7 @@ Search Result
 			</div>
 
 			<hr>
-			{{ $packages->appends(request()->all())->links('vendor.pagination.bootstrap-4') }}
+			{{ $packages->appends(request()->all())->links('pagination::bootstrap-4') }}
 			@else
 			<p>Your search did not match any documents.</p>
 			@endif

@@ -27,9 +27,9 @@ Slides
 				<td>{{ $slide->title }}</td>
 				<td>
 					@if ($slide->status)
-						<a class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="bottom" title="Click to show" href="{{ route('slides.showhide', $slide->id) }}"><i class="lnr lnr-checkmark-circle"></i></a>
+						<a class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="bottom" title="Click to show" data-method="post" href="{{ route('slides.showhide', $slide->id) }}"><i class="lnr lnr-checkmark-circle"></i></a>
 					@else
-						<a class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="Click to hide" href="{{ route('slides.showhide', $slide->id) }}"><i class="lnr lnr-cross-circle"></i></a>
+						<a class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="Click to hide" data-method="post" href="{{ route('slides.showhide', $slide->id) }}"><i class="lnr lnr-cross-circle"></i></a>
 					@endif
 					[{{ $slide->status ? 'Active' : 'Draft' }}]
 				</td>

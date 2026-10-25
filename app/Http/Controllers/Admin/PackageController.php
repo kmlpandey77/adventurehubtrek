@@ -74,7 +74,7 @@ class PackageController extends Controller
             'details' => 'required',
             ]);
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);
+        $slug = $slug == '/'? $slug : \Illuminate\Support\Str::slug($slug);
 
         $package = new Package;
         $package->category_id = $request->category_id;
@@ -204,7 +204,7 @@ class PackageController extends Controller
             ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);
+        $slug = $slug == '/'? $slug : \Illuminate\Support\Str::slug($slug);
 
         $package->category_id = $request->category_id;
         $package->region_id = $request->region_id;
