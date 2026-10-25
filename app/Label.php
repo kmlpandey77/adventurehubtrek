@@ -12,9 +12,17 @@ class Label extends Model
     {
         list($labelPage, $id) = explode(':', $labelID);
 
-        $labels = Cache::remember($labelPage, 30 * 24 * 60 * 60, function () use ($labelPage) {
+        $fetch = function () use ($labelPage) {
             return DB::table('labels')->where('page', $labelPage)->pluck('value', 'labelid')->all();
-        });
+        };
+
+        $labels = Cache::remember($labelPage, 30 * 24 * 60 * 60, $fetch);
+
+        // Entries cached by older code can hold objects that no longer unserialize.
+        if (!is_array($labels)) {
+            Cache::forget($labelPage);
+            $labels = Cache::remember($labelPage, 30 * 24 * 60 * 60, $fetch);
+        }
         if (isset($labels[$labelID]) && isset($labels[$labelID]) && $labels[$labelID]) {
             return $labels[$labelID];
         }
