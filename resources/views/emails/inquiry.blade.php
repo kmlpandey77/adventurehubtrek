@@ -1,7 +1,7 @@
 @component('mail::message')
 Date: <b>{{ date('F d, Y') }} </b>  
 IP Address: <b>*{{ request()->ip() }}*</b> 
-[{{ $ipData['city'] }}, {{ $ipData['country_name'] }} <img src="{{ $ipData['location']['country_flag'] }}" alt="{{ $ipData['country_name'] }}" width="16">]  
+[{{ $ipData['city'] ?? '' }}, {{ $ipData['country_name'] ?? '' }} <img src="{{ $ipData['location']['country_flag'] ?? '' }}" alt="{{ $ipData['country_name'] ?? '' }}" width="16">]  
 @if($request->inquiry_page)
 Trip Name: {{ $request->inquiry_page }}
 @endif
@@ -17,7 +17,7 @@ Trip Name: {{ $request->inquiry_page }}
 **Country:** {{ $request->country }}  
 
 **Message:**  
-"{!! nl2br($request->message) !!}"
+"{!! nl2br(e($request->message)) !!}"
 
 
 <br>

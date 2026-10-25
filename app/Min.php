@@ -43,6 +43,9 @@ class Min
 			$update = false;
 			if(!file_exists($minify_path)){
 				$update = true;
+			}elseif($this->last_mod < filemtime(config_path('minify.php'))){
+				// The list of files changed
+				$update = true;
 			}else{
 				foreach ($this->source_file as $file) {
 					$mod = filemtime(public_path($file));

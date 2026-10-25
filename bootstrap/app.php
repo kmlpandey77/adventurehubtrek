@@ -19,6 +19,12 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->redirectUsersTo('/administrative');
+
+        $middleware->append(\App\Http\Middleware\SecurityHeaders::class);
+
+        $middleware->alias([
+            'uploads.images' => \App\Http\Middleware\RestrictUploads::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         // Send requests for old URLs to their new location, as configured in the admin.

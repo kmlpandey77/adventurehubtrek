@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Kamal Pandey',
             'email' => 'kml.pandey77@gmail.com',
             // 'groups' => '100',
-            'password' => bcrypt('53cr3T980@()*'),
+            'password' => bcrypt(env('ADMIN_PASSWORD') ?: \Illuminate\Support\Str::password(20)),
         ]);
     }
 }

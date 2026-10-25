@@ -225,7 +225,7 @@
 							<input class="form-control" placeholder="Outline" name="itinerary_edit[outline][]" value="{{ $itinerary->outline }}" type="text">
 						</div>
 						<div class="col-sm-1">
-							<a href="{{ route('packages.itinerarydelete', $itinerary->id) }}" class="btn btn-danger" onclick="return confirm('Are your sure?')"><i class="lnr lnr-trash"></i></a>
+							<a data-method="post" href="{{ route('packages.itinerarydelete', $itinerary->id) }}" class="btn btn-danger" onclick="return confirm('Are your sure?')"><i class="lnr lnr-trash"></i></a>
 						</div>
 					</div>
 

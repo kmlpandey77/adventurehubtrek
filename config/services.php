@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'ipstack' => [
+        'key' => env('IPSTACK_KEY'),
+    ],
+
 ];

@@ -45,7 +45,7 @@
 			<ul class="navbar-nav ml-auto header_right">
 				<li class="user_image"><img src="{{ asset(config('admin.userimage')) }}" alt="" /></li>
 				<li class="name"><b>{{ Auth::user()->name }}</b></li>
-				<li ><a href="{{ route('cacheclear') }}"> Cache Clear</a></li>
+				<li ><a data-method="post" href="{{ route('cacheclear') }}"> Cache Clear</a></li>
 				<li class="logout"><a href="{{ route('logout') }}"> Logout <i class="lnr lnr-exit"></i></a></li>
 			</ul>
 		</div>
@@ -91,7 +91,8 @@
 		</div>
 	</div>
 
-	<script src="{{ asset('vendors/jquery-ui/external/jquery/jquery.js') }}"></script>
+	<script src="{{ asset('vendors/jquery-3.7.1.min.js') }}"></script>
+	<script src="{{ asset('vendors/jquery-migrate-3.4.1.min.js') }}"></script>
 	<script src="{{ asset('vendors/jquery-ui/jquery-ui.min.js') }}"></script>
 	<script src="{{ asset('vendors/popper.min.js') }}"></script>
 	<script src="{{ asset('vendors/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -127,6 +128,21 @@
 				dateFormat: 'yy-mm-dd'
 			});
 		} );
+	</script>
+
+	<script>
+		// Links that change data are sent as POST with a CSRF token (not as GET).
+		document.addEventListener('click', function (e) {
+			var link = e.target.closest('a[data-method="post"]');
+			if (!link || e.defaultPrevented) return;
+			e.preventDefault();
+			var form = document.createElement('form');
+			form.method = 'POST';
+			form.action = link.href;
+			form.innerHTML = '<input type="hidden" name="_token" value="{{ csrf_token() }}">';
+			document.body.appendChild(form);
+			form.submit();
+		});
 	</script>
 
 	@yield('script')
