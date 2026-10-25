@@ -5,7 +5,7 @@
         <h4><a href="{{ $category->url }}">{{ $category->title }}</a></h4>
       </div>
       <div class="card-txt">
-          <p>{{ str_limit(strip_tags($category->details), 120) }}</p>
+          <p>{{ \Illuminate\Support\Str::limit(strip_tags($category->details), 120) }}</p>
           <a href="{{ $category->url }}" class="button button-primary button-rounded button-raised button-small">Read more</a>
       </div>
     </div>

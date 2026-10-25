@@ -43,7 +43,7 @@ class DestinationController extends Controller
         ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);
+        $slug = $slug == '/'? $slug : \Illuminate\Support\Str::slug($slug);
 
         $destination = new Destination;
         $destination->title = $request->title;
@@ -101,7 +101,7 @@ class DestinationController extends Controller
         ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);
+        $slug = $slug == '/'? $slug : \Illuminate\Support\Str::slug($slug);
 
         $destination->title = $request->title;
         $destination->slug = $slug;

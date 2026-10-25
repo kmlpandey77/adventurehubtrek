@@ -44,7 +44,7 @@ class AlbumController extends Controller
 
         $album_data = array(
             'title' => $request->title,
-            'slug' => str_slug($request->title,'-'),
+            'slug' => \Illuminate\Support\Str::slug($request->title,'-'),
         );
         $album = Album::create($album_data);
 
@@ -107,7 +107,7 @@ class AlbumController extends Controller
 
          $album_data = array(
             'title' => $request->title,
-            'slug' => str_slug($request->title,'-'),
+            'slug' => \Illuminate\Support\Str::slug($request->title,'-'),
         );
         $albums = Album::where('id',$album->id)->update($album_data);
 

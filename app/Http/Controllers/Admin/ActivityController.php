@@ -46,7 +46,7 @@ class ActivityController extends Controller
         ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);
+        $slug = $slug == '/'? $slug : \Illuminate\Support\Str::slug($slug);
 
         $show_in_menu = 0;
         if($request->show_in_menu){
@@ -115,7 +115,7 @@ class ActivityController extends Controller
         ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);
+        $slug = $slug == '/'? $slug : \Illuminate\Support\Str::slug($slug);
 
         $show_in_menu = 0;
         if($request->show_in_menu){

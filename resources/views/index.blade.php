@@ -45,7 +45,7 @@
                 <div class="popular-dest">
                     <a href="{{ $region->url }}"><img src="{{ $region->image() }}" alt="{{ $region->title }}" class="img-fluid"></a>
                     <h3><a href="{{ $region->url }}">{{ $region->title }}</a></h3>
-                    <p>{{ str_limit(strip_tags($region->details), 80) }}</p>
+                    <p>{{ \Illuminate\Support\Str::limit(strip_tags($region->details), 80) }}</p>
                 </div>
             </div>
             @endforeach

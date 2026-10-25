@@ -45,7 +45,7 @@ class Min
 				$update = true;
 			}else{
 				foreach ($this->source_file as $file) {
-					$mod = filemtime($file);
+					$mod = filemtime(public_path($file));
 					if($this->last_mod < $mod){
 						$update = true;
 						break;
@@ -54,10 +54,11 @@ class Min
 			}
 
 			if($update){
+				$source_files = array_map('public_path', $this->source_file);
 				if($this->type == 'js'){
-					$minifier = new Minify\JS($this->source_file);
+					$minifier = new Minify\JS($source_files);
 				}else{
-					$minifier = new Minify\CSS($this->source_file);                
+					$minifier = new Minify\CSS($source_files);
 				}
 				$minifier->minify($minify_path);
 			}

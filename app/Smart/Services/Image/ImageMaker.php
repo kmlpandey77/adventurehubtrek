@@ -1,7 +1,7 @@
 <?php
 namespace App\Smart\Services\Image;
 
-use Intervention\Image\Image;
+use Intervention\Image\Interfaces\ImageInterface;
 use Intervention\Image\ImageManager;
 
 /**
@@ -11,7 +11,12 @@ use Intervention\Image\ImageManager;
 class ImageMaker
 {
     /**
-     * @var ImageManager|Image
+     * @var ImageManager
+     */
+    protected $manager;
+
+    /**
+     * @var ImageInterface
      */
     protected $image;
 
@@ -36,7 +41,7 @@ class ImageMaker
      */
     public function __construct(ImageManager $image)
     {
-        $this->image = $image;
+        $this->manager = $image;
     }
 
     /**
@@ -48,7 +53,7 @@ class ImageMaker
      */
     public function load($image)
     {
-        $this->image = $this->image->make($image);
+        $this->image = $this->manager->read($image);
 
         return $this;
     }
@@ -66,9 +71,9 @@ class ImageMaker
     public function thumbnail($width, $height)
     {
         if ($width >= $height) {
-            $this->image = $this->image->fit($width, $height);
+            $this->image = $this->image->cover($width, $height);
         } else {
-            $this->image = $this->image->fit($width, $height, null, 'top');
+            $this->image = $this->image->cover($width, $height, 'top');
         }
 
         return $this;
@@ -91,7 +96,7 @@ class ImageMaker
             mkdir($destinationFolder, 0777, true);
         }
 
-        $this->image->save(sprintf('%s/%s', $destinationFolder, $filename), $quality);
+        $this->image->save(sprintf('%s/%s', $destinationFolder, $filename), quality: $quality);
 
         return $this;
     }
@@ -108,6 +113,8 @@ class ImageMaker
     {
         $format = $format ?: $this->format;
 
-        return $this->image->response($format);
+        $encoded = $this->image->encodeByExtension($format, quality: $this->quality);
+
+        return response((string) $encoded)->header('Content-Type', $encoded->mediaType());
     }
 }

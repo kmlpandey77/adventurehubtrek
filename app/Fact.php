@@ -8,7 +8,7 @@ class Fact extends Model
 {	
 	public function icon()
 	{
-		$icon = str_slug($this->title);
+		$icon = \Illuminate\Support\Str::slug($this->title);
 		return config('facts.'.$icon);
 	}
 	public function col()

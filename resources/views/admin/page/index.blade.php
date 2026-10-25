@@ -50,8 +50,8 @@ Pages
 				@foreach ($pages as $page)
 				<tr id="{{ $page->id }}">
 					<td>{{ $page->parent ? $page->parent->title : 'None' }}</td>
-					<td>{{ str_limit($page->title, 35) }}</td>
-					<td>{{ $page->slug == 'home' ? '/' : '/' . str_limit($page->slug, 35) }}</td>
+					<td>{{ \Illuminate\Support\Str::limit($page->title, 35) }}</td>
+					<td>{{ $page->slug == 'home' ? '/' : '/' . \Illuminate\Support\Str::limit($page->slug, 35) }}</td>
 					<td>
 						@if ($page->status)
 							<a class="text-success" data-toggle="tooltip" data-placement="bottom" title="Click to hide" href="{{ route('pages.showhide', $page->id) }}">
@@ -81,7 +81,7 @@ Pages
 
 		<hr>
 
-		{!! $pages->links('vendor.pagination.bootstrap-4') !!}
+		{!! $pages->links('pagination::bootstrap-4') !!}
 	</div>
 </div>
 @endsection

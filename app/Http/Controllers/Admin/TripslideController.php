@@ -56,7 +56,7 @@ class TripslideController extends Controller
         $slide->save();
 
         if ($request->hasFile('image')) {
-            $image_name = str_slug($request->title) . '-'.$slide->id . '.'.$request->image->extension();
+            $image_name = \Illuminate\Support\Str::slug($request->title) . '-'.$slide->id . '.'.$request->image->extension();
             $path = $request->image->move('uploads/slide/', $image_name);
             $slide->image = $image_name;
             $slide->save();
@@ -116,7 +116,7 @@ class TripslideController extends Controller
             if($slide->image && file_exists(public_path('uploads/slide/'.$slide->image))){
                 unlink(public_path('uploads/slide/'.$slide->image));
             }
-            $image_name = str_slug($request->title) . '-'.$slide->id . '.'.$request->image->extension();
+            $image_name = \Illuminate\Support\Str::slug($request->title) . '-'.$slide->id . '.'.$request->image->extension();
             $path = $request->image->move('uploads/slide/', $image_name);
             $slide->image = $image_name;
             $slide->save();

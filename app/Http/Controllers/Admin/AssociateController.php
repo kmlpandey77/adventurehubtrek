@@ -44,7 +44,7 @@ class AssociateController extends Controller
 
         $associate = new Associate;
         $associate->title = $request->title;
-        $associate->slug = str_slug($request->title);
+        $associate->slug = \Illuminate\Support\Str::slug($request->title);
         $associate->link = $request->link;
         $associate->save();
 
@@ -95,7 +95,7 @@ class AssociateController extends Controller
         ]);
 
         $associate->title = $request->title;
-        $associate->slug = str_slug($request->title);
+        $associate->slug = \Illuminate\Support\Str::slug($request->title);
         $associate->link = $request->link;
         $associate->save();
 

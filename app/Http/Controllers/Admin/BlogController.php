@@ -43,7 +43,7 @@ class BlogController extends Controller
         ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);
+        $slug = $slug == '/'? $slug : \Illuminate\Support\Str::slug($slug);
 
         $blog = new Blog;
         $blog->title = $request->title;
@@ -99,7 +99,7 @@ class BlogController extends Controller
         ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);
+        $slug = $slug == '/'? $slug : \Illuminate\Support\Str::slug($slug);
 
         $blog->title = $request->title;
         $blog->event_date = $request->event_date;

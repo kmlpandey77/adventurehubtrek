@@ -63,7 +63,7 @@ class PageController extends Controller
             ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);
+        $slug = $slug == '/'? $slug : \Illuminate\Support\Str::slug($slug);
 
         $page = new Page;
         $page->parent_id = $request->parent_id;
@@ -131,7 +131,7 @@ class PageController extends Controller
             ]);
 
         $slug = $request->slug? $request->slug : $request->title;
-        $slug = $slug == '/'? $slug : str_slug($slug);
+        $slug = $slug == '/'? $slug : \Illuminate\Support\Str::slug($slug);
 
         $page->parent_id = $request->parent_id;
         $page->title = $request->title;
