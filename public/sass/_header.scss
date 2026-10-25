@@ -1,0 +1,81 @@
+header{
+	.header{
+		padding-top: 20px;
+		padding-bottom: 20px;
+		text-align: center;
+		.header-contact{
+			margin: 20px 0 0 0;
+			padding: 0;
+			list-style: none;
+			li{
+				display: inline-block;
+				font-size: 16px;
+				font-weight: bold;
+				text-transform: uppercase;
+				color: $secondary;
+				font-family: $heading_font;
+				text-align: left;
+				span{
+					float: left;
+					&.icon{
+						width: 50px;
+						height: 50px;
+						line-height: 40px;
+						text-align: center;
+						border: 3px solid #c5d3f0;
+						color: #333;
+						font-size: 24px;
+						margin-right: 10px;
+					}
+					small, a{
+						display: block;
+						font-size: 14px;
+						color: #333;
+						font-family: $text-font;
+						text-transform: none;
+					}
+					a{
+						color: $p_light;
+						font-weight: normal;
+					}			
+				}
+				&:last-child{
+					margin-left: 20px;
+				}
+			}
+		}
+		
+		.top-search{
+			display: flex;
+			margin: 20px 0 0 0;
+			input{
+				width: calc(100% - 50px);
+				flex-basis: calc(100% - 50px);
+				border: 3px solid #c5d3f0;
+				border-right: none;
+				padding-left: 10px; 
+				padding-right: 10px;
+				&:focus{
+					outline: none;
+				}
+
+			}
+			button{
+				width: 50px;
+				height: 50px;
+				flex-basis: 50px;
+				line-height: 40px;
+				text-align: center;
+				border: 3px solid $primary;
+				color: #fff;
+				background: $primary;
+				&:focus{
+					outline: none;
+				}
+			}
+		}
+			
+	}
+}
+
+  

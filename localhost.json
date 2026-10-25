@@ -1,0 +1,8 @@
+{
+	"status":true,
+	"name":"Great Nepal Treks",
+	"host":{
+		"live":"http://greatnepaltreks.com",
+		"local":"http://dev.greatnepaltreks.com"
+	}
+}

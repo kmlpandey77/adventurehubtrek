@@ -1,0 +1,166 @@
+footer{
+	padding: 0;
+
+	.footer-content{
+		padding: 20px 0 0 0;
+		color: #fff;
+		margin-bottom: 20px;
+		border-top: 5px solid $p_dark;
+		background: $primary;
+		text-align: center;
+		@media #{$md}{
+			margin-bottom: 0;
+			text-align: left;
+		}
+		h4{
+			font-size: 18px;
+			margin-bottom: 5px;
+			@media #{$md}{
+				margin-bottom: .5rem;
+			}
+		}
+		ul{
+			margin: 0 0 20px 0;
+			padding: 0;
+			list-style: none;
+			li{
+				display: block;
+				a{
+					color: #fff;
+					font-size: 14px;
+				}
+			}
+		}
+
+		.associate,
+		.we-accept{
+			text-align: center;
+			@media #{$md}{
+				text-align: right;				
+			}
+			margin-bottom: 10px;
+			h4{
+				padding-bottom: 5px;
+			}
+		}
+
+		.newsletter{
+			margin-top: 20px;
+			form{				
+				display: flex;
+				background: white;
+				border-radius: 200px;
+				padding-left: 20px;
+				border: 1px solid;
+				.field{
+					max-width: calc(100% - 160px);
+					flex-basis: calc(100% - 160px);
+					margin-right: 10px;
+					input{
+						width: 100%;
+						color: #333;
+						border: none;
+						line-height: 40px;
+						height: 40px;
+						&:focus{					
+							outline: none;					
+						}
+					}
+				}
+				.action{
+					max-width: 150px;
+					flex-basis: 150px;
+					button{
+						padding: 0 30px;
+						line-height: 40px;
+						height: 40px;
+					}
+				}
+			}
+		}
+	}		
+
+
+	.footer_menu{
+		margin: 15px 0 0 0;
+		padding: 0;
+		list-style-type: none;
+		text-align: center;
+		li{
+			display: inline-block;
+			a{
+				color: #fff;
+				text-decoration: none;
+				font-size: 14px;		
+			}
+
+			&:after{
+				content:'|';
+				color: rgba(255,255,255, .3);
+				margin: 0 10px;
+				font-weight: 300;
+			}
+			&:last-child{
+				&:after{
+					content:'';
+					margin: 0;
+				}
+
+			}
+
+		}
+	}
+
+	.copyright{
+		font-size: 14px;
+		padding: 10px 0;	
+		p{
+			text-align: center;
+			margin: 0;
+			padding: 0;
+			span{
+				display: block;
+				@media #{$md}{
+					display: inline;
+					&:after{
+						content:'|';
+						color: rgba(0,0,0, .3);
+						margin: 0 10px;
+					}
+					&:last-child{
+						&:after{
+							content:' ';
+							margin: 0;	
+						}
+					}
+				}
+				a{
+					color: $primary;
+				}
+			}
+		}
+	}
+
+	#backtotop{
+		background: darken($p_dark,30%);
+		position: fixed;
+		display: none;
+		bottom: 0;
+		right: 10px;
+		color: #fff;
+		width: 50px;		
+		height: 50px;
+		text-align: center;
+		cursor: pointer;
+		i{
+			font-size: 26px;
+			line-height: 45px;
+		}
+		@media #{$md}{
+			right: 30px;
+		}
+		border: 1px solid rgba(255,255,255, .5);
+		@include border-radius(50%);		
+		@include box-shadow;
+	}
+}

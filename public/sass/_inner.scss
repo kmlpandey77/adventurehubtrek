@@ -1,0 +1,334 @@
+.innerslide {
+	background: #f1f1f1;
+	margin-bottom: 30px;
+	p{
+		padding: 0;
+		margin: 0;
+		text-align: center;
+	}
+	
+}
+
+.full-image-content {
+	padding-top: 400px;
+	h1 {
+		padding: 0 0 30px 0;
+		margin: 0;
+		color: #fff;
+	}
+}
+
+.content {
+	padding-top: 30px;
+	@media #{$md} {
+		padding-bottom: 30px;
+	}
+	.breadcrumb {
+		background: transparent;
+		padding: 0;
+		font-size: 16px;
+		.breadcrumb-item {
+			a {
+				color: #333;
+			}
+		}
+		.breadcrumb-item+.breadcrumb-item::before {
+			content: '\f105';
+			font-family: 'FontAwesome';
+		}
+	}
+	.content-left {
+		background: #fff;
+		padding: 15px;
+		margin-left: -15px;
+		margin-right: -15px;
+		@media #{$md} {
+			margin-left: 0;
+			margin-right: 0;
+			padding: 30px;
+		}
+		h1 {
+			font-size: 36px;
+			margin: 0 0 20px 0;
+			padding: 0;
+			color: $p_dark;
+		}
+	}
+	.inner-image {
+		margin-bottom: 30px;
+	}
+	.content-right {
+		background: #fff;
+		padding: 30px;
+		.right-menu {
+			h3 {
+				font-size: 24px;
+			}
+			ul {
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+				li {
+					a {
+						display: block;
+						color: #333;
+						text-decoration: none;
+						padding: 5px 10px;
+						&::before {
+							content: '\f105';
+							font-family: 'FontAwesome';
+							margin-right: 5px;
+						}
+						&:hover {
+							background: #f1f1f1;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.card-list {
+	margin-top: 10px;
+	h3 {
+		font-size: 24px;
+		padding-bottom: 15px;
+		margin-bottom: 15px;
+		border-bottom: 1px solid #f1f1f1;
+		color: $p_dark;
+	}
+	.card-box {
+		margin-bottom: 30px;
+		.card-image {
+			position: relative;
+			h4 {
+				font-size: 22px;
+				padding: 15px 0 10px 0;
+				margin: 0;
+				position: absolute;
+				bottom: 0;
+				color: #fff;
+				background: rgba(0, 0, 0, .5);
+				width: 100%;
+				padding: 15px;
+				a {
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+		}
+		.card-txt {
+			padding: 15px;
+			border: 1px solid #ddd;
+			p {
+				color: #555;
+				line-height: 22px;
+			}
+		}
+	}
+}
+
+.trip-nav {
+	display: none;
+	background: #fff;
+	border-bottom: 1px solid #ddd;
+	.navbar {
+		background: #fff;		
+		padding: 0;
+		.trip_nav_text{
+			font-size: 18px;
+			font-weight: 500;
+			color: $primary;
+			padding: 10px 20px;
+			@media #{$xl}{
+				display: none;
+			}
+		}
+		.navbar-nav {
+			border-top: 1px solid #ddd;
+			@media #{$lg}{
+				border-top: none;
+			}
+			.nav-link {
+				font-size: 18px;
+				font-weight: 500;
+				color: #2e2e2e;
+				padding: 10px 20px;
+				&.active {
+					color: $primary;
+				}				
+			}
+			.button-inquiry {
+				color: #fff;
+				padding: 0 30px;
+				margin-bottom: 15px;
+				@media #{$lg} {
+					margin-bottom: 0;
+				}
+			}		
+		}
+	}
+}
+
+.trip {
+
+	.trip-wrap{
+		background: #fff;
+		padding: 0;
+		border: 1px solid #f1f1f1;
+		margin-bottom: 30px;
+		h1{
+			margin: 0;
+			padding: 0;
+			margin-bottom: 20px;
+			font-size: 1.2rem;
+			@media #{$md} {
+				font-size: 2.2rem;
+			}			
+		}
+
+		.trip-left{
+			padding: 30px 0 30px 30px; 
+			.itineraries{
+				h2{
+					font-size: 1.6rem;
+				}
+				.itinerary{
+					h4{
+						font-size: 1rem;
+						font-family: $text-font;
+						font-weight: 500;
+					}
+				}
+			}
+		}
+		.trip-right{
+			border-left: 1px solid #f1f1f1;
+		}
+	}
+
+	.trip-facts {
+		background: #f9f9f9;
+		padding:0;
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			li {
+				padding: 10px 20px;
+				border-bottom: 1px solid #F1F1F1;
+				&:last-child {
+					border-bottom: none;
+				}
+				span:first-child{
+					font-weight: 600;
+				}
+			}
+		}
+	}
+
+	.price-box{
+		background: $primary;
+		margin-bottom: 30px;
+		color: #fff;
+		text-align: center;
+		p{
+			text-align: center;
+			padding: 0;
+			margin: 0;
+		}
+	}
+
+	.trip_map {
+		margin-bottom: 30px;
+		text-align: center;
+		background: #ffffff;
+		a {
+			padding: 20px 0;
+			position: relative;
+			display: block;
+			span {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				background: rgba(0, 0, 0, .8);
+				color: #ffffff;
+				width: 200px;
+				height: 40px;
+				line-height: 40px;
+				margin-top: -20px;
+				margin-left: -100px;
+			}			
+		}
+	}
+	.related_trip {
+		background: #fff;
+		padding: 30px;
+		margin-top: 30px;		
+	}
+
+	.accordion_related_trip{
+		padding: 30px;
+		margin-top: 30px;
+		.card{
+			border: none;
+			.card-header{
+				margin: 0 0 5px 0;
+				padding: 0;
+				border: none;
+				background: transparent;
+			}
+			.card-body{
+				padding: 0;
+			}
+		}
+	}
+}
+
+.trip-f00ter-nav{
+	padding: 30px 0 20px 0;
+	@media #{$md} {
+		padding: 0;				
+	}
+	a.button{
+		display: block;
+		margin-bottom: 10px;
+		@media #{$md} {
+			display: inline-block;
+			margin-bottom: 0;
+		}
+	}
+}
+
+.inner-review {
+	.media {
+		.media-body {
+			h5 {
+				padding: 5px 0 0 0;
+				font-size: 24px;
+			}
+			p {
+				&.rating {
+					i {
+						color: #ffa800;
+						font-size: 18px;
+						&.deactive {
+							color: #ddd;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.nma-peaks-open-for-climbing,
+.royalty-and-rules {
+	h3 {
+		font-size: 18px;
+	}
+	table {
+		font-size: 14px;
+	}
+}

@@ -1,0 +1,114 @@
+body {
+	font-family: $text-font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $heading_font;
+}
+
+p {
+	text-align: justify;
+	line-height: 1.7rem;
+}
+
+a {
+	color: $primary;
+}
+
+// @media (min-width: 1200px) {
+// 	.container {
+// 		max-width: 1200px;
+// 	}
+// }
+
+.gray-bg {
+	background: #f6f8f9;
+}
+
+.tinyModal {
+	.modal-dialog {
+		max-width: 350px;		
+	}
+}
+
+.customModal {
+	.modal-dialog {
+		.modal-title {
+			span {
+				display: block;
+				color: $primary;
+				font-size: 18px;
+			}
+		}		
+	}
+}
+
+.owl-nav {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	margin: 0 20px;
+	margin-top: -10px;
+	button{
+		height: 30px;
+		line-height: 30px !important;
+		width: 30px;
+		text-align: center;
+		background: rgba($p-dark, .6) !important;
+		border: 1px solid $p-dark !important;
+		color: #fff !important;
+		border-radius: 50%;
+		i{
+			font-size: 22px;
+			margin-top: 2px;
+		}
+		&:hover{
+			background: rgba($p-dark, 1) !important;
+		}
+	}
+	.owl-prev {
+		float: left;
+		i{
+			margin-right: 2px;
+		}
+	}
+	.owl-next {
+		float: right;
+		i{
+			margin-left: 3px;
+		}
+	}
+}
+
+.owl-theme {	
+	.owl-dots {
+		position: absolute;
+		top: 10px;
+		right: 20px;
+		text-align: right;
+		z-index: 999;
+		.owl-dot {
+			span {
+				background: lighten($primary, 40%);
+			}
+			&.active,
+			&:hover {
+				span {
+					background: $primary;
+				}
+			}
+		}
+	}
+}
+
+.popover-body{
+	text-align: justify;
+	padding: 15px;
+	font-size: 16px;
+}
